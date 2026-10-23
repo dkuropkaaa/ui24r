@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f5f2">
+  <meta name="description" content="Radar opadów Windy dla Wrocławia i okolic.">
+  <title>Radar pogodowy Wrocław | Windy</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+      background: #f4f5f2;
+      color: #18211d;
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { width: 100%; height: 100%; margin: 0; }
+
+    body {
+      min-width: 320px;
+      min-height: 100dvh;
+      display: grid;
+      grid-template-rows: 76px minmax(0, 1fr);
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 30px;
+      border-bottom: 1px solid #d9ded9;
+      background: #f8f9f6;
+    }
+
+    .identity, .location, .windy-link { display: flex; align-items: center; }
+
+    .identity { gap: 14px; min-width: 0; }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      border-radius: 11px;
+      background: #e84935;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    h1 { margin: 0; font-size: 18px; line-height: 1.15; font-weight: 700; }
+    .subtitle { margin-top: 4px; color: #68736d; font-size: 12px; }
+
+    .location {
+      gap: 9px;
+      padding-left: 22px;
+      border-left: 1px solid #d9ded9;
+      color: #536059;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .location-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #cf4c37;
+      box-shadow: 0 0 0 4px #f7e6e1;
+    }
+
+    .windy-link {
+      gap: 8px;
+      color: #18211d;
+      font-size: 13px;
+      font-weight: 650;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .windy-link:hover { color: #c53e2d; }
+    .windy-link svg { width: 17px; height: 17px; }
+
+    main { min-height: 0; background: #dce3df; }
+
+    .radar-frame {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      border: 0;
+    }
+
+    @media (max-width: 680px) {
+      body { grid-template-rows: 68px minmax(0, 1fr); }
+      .topbar { padding: 0 16px; gap: 12px; }
+      .identity { gap: 10px; }
+      .mark { width: 34px; height: 34px; }
+      h1 { font-size: 16px; }
+      .subtitle { font-size: 11px; }
+      .location { display: none; }
+      .windy-link { font-size: 12px; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .topbar { animation: arrive 420ms ease-out both; }
+      @keyframes arrive {
+        from { opacity: 0; transform: translateY(-6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="identity">
+      <span class="mark" aria-hidden="true">W</span>
+      <div>
+        <h1>Radar pogodowy</h1>
+        <div class="subtitle">Wrocław i okolice</div>
+      </div>
+    </div>
+    <div class="location" aria-label="Lokalizacja: Wrocław">
+      <span class="location-dot" aria-hidden="true"></span>
+      <span>Wrocław, Polska</span>
+      <span aria-hidden="true">·</span>
+      <span>51.1079° N, 17.0385° E</span>
+    </div>
+    <a class="windy-link" href="https://www.windy.com/51.1079/17.0385?radar,51.1079,17.0385,8" target="_blank" rel="noopener noreferrer">
+      Windy.com
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path d="M14 4h6v6M20 4 11 13" />
+        <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5" />
+      </svg>
+    </a>
+  </header>
+  <main>
+    <iframe
+      class="radar-frame"
+      title="Radar opadów Windy dla Wrocławia"
+      src="https://embed.windy.com/embed2.html?lat=51.1079&lon=17.0385&detailLat=51.1079&detailLon=17.0385&width=650&height=450&zoom=8&level=surface&overlay=radar&product=radar&menu=&message=true&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default"
+      loading="eager"
+      allowfullscreen>
+    </iframe>
+  </main>
+</body>
+</html>
