@@ -1,7 +1,7 @@
-# Radar pogodowy Wrocław
+# Soundcraft Ui24R
 
-Prosta, responsywna strona HTML z osadzonym radarem opadów Windy, wycentrowanym na Wrocławiu.
+Responsywna strona z pełnoekranowym, osadzonym demo miksera Soundcraft Ui24R.
 
 ## Uruchomienie
 
-Otwórz `index.html` w przeglądarce. Do poprawnego wyświetlenia radaru potrzebne jest połączenie z internetem oraz dostęp do Windy.com.
+Otwórz `index.html` w przeglądarce. Demo jest ładowane z serwisu Soundcraft, dlatego wymaga połączenia z internetem.
